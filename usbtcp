@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#  usbtcp
+#  
+#
+#  Created by Dayt0n on 10/19/14.
+#
+
+clear
+echo "Searching for Device..."
+sleep 1
+echo "Device Found!"
+sleep 0.5
+echo "Establishing TCP Connection to USB device..."
+sleep 3
+rvictl -s `idevice_id -l`
+sleep 0.5
+clear
+echo "Connecting to Device TCP..."
+sleep 1
+tcpdump -n -t -i rvi0 -q tcp
+clear
+rvictl -x `idevice_id -l`
+sleep 0.5
+clear
+echo "Thanks for using Dayt0n's USB to TCP tool!"
+sleep 1
+exit
